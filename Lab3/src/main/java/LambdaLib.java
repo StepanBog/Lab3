@@ -1,6 +1,7 @@
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
 import scala.Tuple12;
+import scala.Tuple2;
 
 import java.util.Arrays;
 
@@ -12,6 +13,7 @@ public class LambdaLib {
     private static final int ORIGIN_ID = ;
     private static final int DECT_ID = ;
     private static final int DELAY = ;
+    private static final int CANCELLED = ;
 
     public static JavaRDD<String[]> parseFlights(JavaRDD<String> flightsTable) {
         return flightsTable.filter(s-> !s.contains(FLIGHTSTITLE))
@@ -25,7 +27,7 @@ public class LambdaLib {
                         .toArray(String[]::new));
     }
 
-    public static JavaPairRDD<Tuple12,FlightKey> pair_ID_ID_Delay_Cancelled(JavaRDD<String[]> parsedFlights) {
-        return parsedFlights.mapToPair(s-> new Tuple12<>(new Tuple12<>(s[ORIGIN_ID],s[DECT_ID]),new FlightKey(s[DELAY],s[CANCELLED])))
+    public static JavaPairRDD<Tuple2<String,String>,FlightKey> pair_ID_ID_Delay_Cancelled(JavaRDD<String[]> parsedFlights) {
+        return parsedFlights.mapToPair(s-> new Tuple2<>(new Tuple2<>(s[ORIGIN_ID],s[DECT_ID]),new FlightKey(s[DELAY],s[CANCELLED])));
     }
 }

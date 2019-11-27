@@ -5,6 +5,7 @@ import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
 import scala.Tuple1;
 import scala.Tuple12;
+import scala.Tuple2;
 
 public class Lab3 {
     public static void main (String[] args){
@@ -17,6 +18,6 @@ public class Lab3 {
         JavaRDD<String[]> parsedFlights = LambdaLib.parseFlights(flightsTable);
         JavaRDD<String[]> parsedAirports = LambdaLib.parseAirports(airportsTable);
 
-        JavaPairRDD<Tuple12<String,String>, FlightKey> id_ID_Delay_Cancelled_Pair = LambdaLib.pair_ID_ID_Delay_Cancelled(parsedFlights);
+        JavaPairRDD<Tuple2<String,String>, FlightKey> id_ID_Delay_Cancelled_Pair = LambdaLib.pair_ID_ID_Delay_Cancelled(parsedFlights);
     }
 }
