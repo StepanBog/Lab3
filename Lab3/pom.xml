@@ -7,6 +7,13 @@
     <groupId>Lab3</groupId>
     <artifactId>Lab3</artifactId>
     <version>1</version>
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-core_2.11</artifactId>
+            <version>2.4.4</version>
+        </dependency>
+    </dependencies>
 
 
 </project>
