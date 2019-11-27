@@ -24,5 +24,7 @@ public class Lab3 {
 
         JavaPairRDD<String,String> id_Name_Pair = LambdaLib.pair_ID_Name(parsedAirports);
         Map<String,String> airportMap = LambdaLib.toMap(id_Name_Pair);
+
+        
     }
 }

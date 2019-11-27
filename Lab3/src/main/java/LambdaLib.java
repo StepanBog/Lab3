@@ -39,6 +39,6 @@ public class LambdaLib {
     }
 
     public static Map<String, String> toMap(JavaPairRDD<String, String> id_name_pair) {
-        return id_name_pair.mapToPair()
+        return id_name_pair.collectAsMap();
     }
 }
