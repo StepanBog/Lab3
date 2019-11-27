@@ -23,6 +23,6 @@ public class LambdaLib {
     }
 
     public static JavaPairRDD<Tuple12,FlightKey> pair_ID_ID_Delay_Cancelled(JavaRDD<String[]> parsedFlights) {
-        return parsedFlights.mapToPair(new Tuple12<>(new Tuple12<>()))
+        return parsedFlights.mapToPair(s-> new Tuple12<>(new Tuple12<>(s[])))
     }
 }
