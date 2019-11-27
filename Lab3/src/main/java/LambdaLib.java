@@ -12,7 +12,7 @@ public class LambdaLib {
     private static final String AIRPORTSSPLIT = ",(?=\")";
     private static final int ORIGIN_ID = 11;
     private static final int DECT_ID = 12;
-    private static final int DELAY = 18;
+    private static final int DELAY = 11;
     private static final int CANCELLED = 19;
 
     public static JavaRDD<String[]> parseFlights(JavaRDD<String> flightsTable) {
