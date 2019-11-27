@@ -9,6 +9,6 @@ public class LambdaLib {
     public static JavaRDD<String[]> parseFlights(JavaRDD<String> flightsTable) {
         return flightsTable.filter(s-> !s.contains(FLIGHTSTITLE))
                 .map(s-> Arrays.stream(s.split(FLIGHTSSPLIT)))
-                .toArray(s->);
+                .toArray(String[] :: new);
     }
 }
