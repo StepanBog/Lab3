@@ -7,6 +7,8 @@ import scala.Tuple1;
 import scala.Tuple12;
 import scala.Tuple2;
 
+import java.util.Map;
+
 public class Lab3 {
     public static void main (String[] args) {
         SparkConf conf = new SparkConf().setAppName("Lab3");
@@ -20,8 +22,7 @@ public class Lab3 {
 
         JavaPairRDD<Tuple2<String,String>, FlightKey> id_ID_Delay_Cancelled_Pair = LambdaLib.pair_ID_ID_Delay_Cancelled(parsedFlights);
 
-        JavaPairRDD<String,String> id_Name = LambdaLib.pair_ID_Name(parsedAirports);
-
-        Map
+        JavaPairRDD<String,String> id_Name_Pair = LambdaLib.pair_ID_Name(parsedAirports);
+        Map<String,String> airportMap = LambdaLib.toMap(id_Name_Pair);
     }
 }

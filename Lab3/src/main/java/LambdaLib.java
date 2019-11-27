@@ -4,6 +4,7 @@ import scala.Tuple12;
 import scala.Tuple2;
 
 import java.util.Arrays;
+import java.util.Map;
 
 public class LambdaLib {
     private static final CharSequence FLIGHTSTITLE = "\"YEAR\"" ;
@@ -35,5 +36,9 @@ public class LambdaLib {
 
     public static JavaPairRDD pair_ID_Name(JavaRDD<String[]> parsedAirports) {
         return parsedAirports.mapToPair(s-> new Tuple2<>(s[CODE],s[NAME]));
+    }
+
+    public static Map<String, String> toMap(JavaPairRDD<String, String> id_name_pair) {
+        return id_name_pair.mapToPair()
     }
 }
