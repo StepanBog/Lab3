@@ -10,10 +10,10 @@ public class LambdaLib {
     private static final String FLIGHTSSPLIT = ",";
     private static final CharSequence AIRPORTSTITLE = "Code";
     private static final String AIRPORTSSPLIT = ",(?=\")";
-    private static final int ORIGIN_ID = ;
-    private static final int DECT_ID = ;
-    private static final int DELAY = ;
-    private static final int CANCELLED = ;
+    private static final int ORIGIN_ID = 11;
+    private static final int DECT_ID = 12;
+    private static final int DELAY = 18;
+    private static final int CANCELLED = 19;
 
     public static JavaRDD<String[]> parseFlights(JavaRDD<String> flightsTable) {
         return flightsTable.filter(s-> !s.contains(FLIGHTSTITLE))
