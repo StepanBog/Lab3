@@ -1,4 +1,6 @@
-public class FlightKey implements Sete{
+import java.io.Serializable;
+
+public class FlightKey implements Serializable {
 
     private final double Delay;
     private final int Cancelled;
