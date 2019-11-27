@@ -11,5 +11,6 @@ public class Lab3 {
         JavaRDD<String> airportsTable = sc.textFile("SM.csv");
 
         JavaRDD<String[]> parsedFlights = LambdaLib.parseFlights(flightsTable);
+        JavaRDD<String[]> parsedAirports = LambdaLib.parseAirports(airportsTable);
     }
 }
