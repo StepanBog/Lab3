@@ -14,6 +14,8 @@ public class LambdaLib {
     private static final int DECT_ID = 14;
     private static final int DELAY = 18;
     private static final int CANCELLED = 19;
+    private static final int CODE = 0;
+    private static final int NAME = 1;
 
     public static JavaRDD<String[]> parseFlights(JavaRDD<String> flightsTable) {
         return flightsTable.filter(s-> !s.contains(FLIGHTSTITLE))
@@ -29,5 +31,9 @@ public class LambdaLib {
 
     public static JavaPairRDD<Tuple2<String,String>,FlightKey> pair_ID_ID_Delay_Cancelled(JavaRDD<String[]> parsedFlights) {
         return parsedFlights.mapToPair(s-> new Tuple2<>(new Tuple2<>(s[ORIGIN_ID],s[DECT_ID]),new FlightKey(s[DELAY],s[CANCELLED])));
+    }
+
+    public static JavaPairRDD pair_ID_Name(JavaRDD<String[]> parsedAirports) {
+        return parsedAirports.mapToPair(s-> new Tuple2<>(s[CODE],s[NAME]));
     }
 }
