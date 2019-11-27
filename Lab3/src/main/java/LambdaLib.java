@@ -9,6 +9,9 @@ public class LambdaLib {
     private static final String FLIGHTSSPLIT = ",";
     private static final CharSequence AIRPORTSTITLE = "Code";
     private static final String AIRPORTSSPLIT = ",(?=\")";
+    private static final int ORIGIN_ID = ;
+    private static final int DECT_ID = ;
+    private static final int DELAY = ;
 
     public static JavaRDD<String[]> parseFlights(JavaRDD<String> flightsTable) {
         return flightsTable.filter(s-> !s.contains(FLIGHTSTITLE))
@@ -23,6 +26,6 @@ public class LambdaLib {
     }
 
     public static JavaPairRDD<Tuple12,FlightKey> pair_ID_ID_Delay_Cancelled(JavaRDD<String[]> parsedFlights) {
-        return parsedFlights.mapToPair(s-> new Tuple12<>(new Tuple12<>(s[])))
+        return parsedFlights.mapToPair(s-> new Tuple12<>(new Tuple12<>(s[ORIGIN_ID],s[DECT_ID]),new FlightKey(s[DELAY],s[CANCELLED])))
     }
 }
