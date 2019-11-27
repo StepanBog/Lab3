@@ -3,6 +3,7 @@ import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
+import org.apache.spark.broadcast.Broadcast;
 import scala.Tuple1;
 import scala.Tuple12;
 import scala.Tuple2;
@@ -24,7 +25,8 @@ public class Lab3 {
 
         JavaPairRDD<String,String> id_Name_Pair = LambdaLib.pair_ID_Name(parsedAirports);
         Map<String,String> airportMap = LambdaLib.toMap(id_Name_Pair);
+        final Broadcast<Map<String, String>> airportsBroadcasted =
+                sc.broadcast(airportMap);
 
-        
     }
 }
