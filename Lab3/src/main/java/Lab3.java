@@ -1,4 +1,5 @@
 import org.apache.spark.SparkConf;
+import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
 
 public class Lab3 {
@@ -6,6 +7,7 @@ public class Lab3 {
         SparkConf conf = new SparkConf().setAppName("Lab3");
         JavaSparkContext sc = new JavaSparkContext(conf);
 
-        
+        JavaRDD<String> flightsTable = sc.textFile("BG.csv");
+        JavaRDD<String> airportsTable = sc.textFile("SM.csv");
     }
 }
