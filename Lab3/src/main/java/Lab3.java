@@ -10,6 +10,6 @@ public class Lab3 {
         JavaRDD<String> flightsTable = sc.textFile("BG.csv");
         JavaRDD<String> airportsTable = sc.textFile("SM.csv");
 
-        jav
+        JavaRDD<String[]> parsedFlights = LambdaLib
     }
 }
