@@ -1,4 +1,5 @@
 import org.apache.spark.SparkConf;
+import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
 
@@ -12,5 +13,7 @@ public class Lab3 {
 
         JavaRDD<String[]> parsedFlights = LambdaLib.parseFlights(flightsTable);
         JavaRDD<String[]> parsedAirports = LambdaLib.parseAirports(airportsTable);
+
+        JavaPairRDD<>
     }
 }
