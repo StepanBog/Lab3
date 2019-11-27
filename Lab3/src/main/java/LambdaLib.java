@@ -1,4 +1,6 @@
+import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
+import scala.Tuple12;
 
 import java.util.Arrays;
 
@@ -18,5 +20,9 @@ public class LambdaLib {
         return airportsTable.filter(s-> !s.contains(AIRPORTSTITLE))
                     .map(s-> Arrays.stream(s.split(AIRPORTSSPLIT))
                         .toArray(String[]::new));
+    }
+
+    public static JavaPairRDD<Tuple12,FlightKey> pair_ID_ID_Delay_Cancelled(JavaRDD<String[]> parsedFlights) {
+        return new Tuple12<>(new Tuple12<>())
     }
 }
