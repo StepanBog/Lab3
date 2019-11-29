@@ -36,7 +36,7 @@ public class LambdaLib {
     }
 
     public static JavaPairRDD pair_ID_Name(JavaRDD<String[]> parsedAirports) {
-        return parsedAirports.mapToPair(s-> new Tuple2<>(s[CODE],s[NAME]));
+        return parsedAirports.mapToPair(s-> new Tuple2<>(s[CODE].replace("\"".""),s[NAME]));
     }
 
     public static Map<String, String> toMap(JavaPairRDD<String, String> id_name_pair) {
