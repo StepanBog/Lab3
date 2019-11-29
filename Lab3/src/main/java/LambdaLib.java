@@ -30,7 +30,7 @@ public class LambdaLib {
                         .toArray(String[]::new));
     }
 
-    
+
     public static JavaPairRDD<Tuple2<String,String>,FlightKey> pair_ID_ID_Delay_Cancelled(JavaRDD<String[]> parsedFlights) {
         return parsedFlights.mapToPair(s-> new Tuple2<>(new Tuple2<>(s[ORIGIN_ID],s[DECT_ID]),new FlightKey(s[DELAY],s[CANCELLED])));
     }
