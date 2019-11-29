@@ -8,6 +8,7 @@ import scala.Tuple1;
 import scala.Tuple12;
 import scala.Tuple2;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -29,7 +30,7 @@ public class Lab3 {
         final Broadcast<Map<String, String>> airportsBroadcasted =
                 sc.broadcast(airportMap);
         JavaPairRDD<Tuple2<String,String>,FlightKey> reducedFlights = LambdaLib.reduce(id_ID_Delay_Cancelled_Pair);
-        JavaRDD<List<String>> result = LambdaLib.enrichFlights(reducedFlights,airportsBroadcasted);
+        JavaRDD<List<String>> result = reducedFlights.map(s-> Arrays.asList(airportsBroadcasted.value().get(s._1()._1()),airportsBroadcasted.value().get(s._1()._2()),s._2().tostring()));
         result.saveAsTextFile("output7");
 }
 }
