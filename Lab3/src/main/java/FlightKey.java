@@ -12,10 +12,16 @@ public class FlightKey implements Serializable {
         if (cancelledCount != 0) {
             delay = 0.00;
             delayedCount = 0;
+            cancelledCount = 1;
         }
         else {
-            delay = Double.parseDouble(s);
-            delayedCount = 1;
+            if (s.equals("")){
+                delay = 0.00;
+                delayedCount = 0;
+            } else {
+                delay = Double.parseDouble(s);
+                delayedCount = 1;
+            }
         }
         count = 1;
 
