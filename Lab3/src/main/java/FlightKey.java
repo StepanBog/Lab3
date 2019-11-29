@@ -37,6 +37,7 @@ public class FlightKey implements Serializable {
         int delPeresentInt = delPersentDouble.intValue();
         Double cancelledPersentDouble = (double)cancelledCount/count * 100;
         int cancelledPersentInt = cancelledPersentDouble.intValue();
+        
         return Double.toString(delay) + ", " + Integer.toString(delPeresentInt)+ "%, " + Integer.toString(cancelledPersentInt) + "%";
     }
 }
