@@ -14,13 +14,13 @@ public class FlightKey implements Serializable {
             delayedCount = 1;
         }
         else {
-            delay = 0.0;
+            delay = 0.00;
             delayedCount = 0;
         }
         count = 1;
 
     }
-    public FlightKey(int s,  int s1, int s2, int s3) {
+    public FlightKey(double s,  int s1, int s2, int s3) {
         delay = s;
         cancelledCount = s1;
         delayedCount = s2;
