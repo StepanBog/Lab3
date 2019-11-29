@@ -1,7 +1,6 @@
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.broadcast.Broadcast;
-import scala.Tuple12;
 import scala.Tuple2;
 
 import java.util.Arrays;
@@ -48,7 +47,7 @@ public class LambdaLib {
         return id_id_delay_cancelled_pair.reduceByKey((FlightKey key1,FlightKey key2) ->( new FlightKey(Math.max(key1.delay,key2.delay),(key1.cancelledCount + key2.cancelledCount),(key1.delayedCount + key2.delayedCount),(key1.count + key2.count))));
     }
 
-    public static JavaPairRDD<Tuple2<String,String>,String> enrichFlights(JavaPairRDD<Tuple2<String, String>, FlightKey> reducedFlights, Broadcast<Map<String, String>> airportsBroadcasted) {
-        return reducedFlights.mapToPair(s-> new Tuple2<>(new Tuple2<>(airportsBroadcasted.value().get(s._1()._1()),airportsBroadcasted.value().get(s._1()._2())),s._2().tostring()));
+    public static JavaRDD<List<String>> enrichFlights(JavaPairRDD<Tuple2<String, String>, FlightKey> reducedFlights, Broadcast<Map<String, String>> airportsBroadcasted) {
+        return reducedFlights.map(s-> airportsBroadcasted.value().get(s._1()._1()),airportsBroadcasted.value().get(s._1()._2()),s._2().tostring())
     }
 }

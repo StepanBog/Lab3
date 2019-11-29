@@ -29,7 +29,7 @@ public class Lab3 {
         final Broadcast<Map<String, String>> airportsBroadcasted =
                 sc.broadcast(airportMap);
         JavaPairRDD<Tuple2<String,String>,FlightKey> reducedFlights = LambdaLib.reduce(id_ID_Delay_Cancelled_Pair);
-        JavaPairRDD<Tuple2<String,String>,String> result = LambdaLib.enrichFlights(reducedFlights,airportsBroadcasted);
+        JavaRDD<List<String>> result = LambdaLib.enrichFlights(reducedFlights,airportsBroadcasted);
         result.saveAsTextFile("output6");
 }
 }
