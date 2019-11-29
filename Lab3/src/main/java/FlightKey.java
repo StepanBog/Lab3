@@ -32,4 +32,8 @@ public class FlightKey implements Serializable {
         delayedCount = s2;
         count = s3;
     }
+
+    public String tostring() {
+        return max
+    }
 }
