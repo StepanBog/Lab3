@@ -43,6 +43,6 @@ public class LambdaLib {
     }
 
     public static JavaPairRDD<Tuple2<String, String>,FlightKey> reduce(JavaPairRDD<Tuple2<String, String>,FlightKey> id_id_delay_cancelled_pair) {
-        return id_id_delay_cancelled_pair.reduceByKey(s-> new Tuple2<>(new Tuple2(s.)))
+        return id_id_delay_cancelled_pair.reduceByKey();
     }
 }
