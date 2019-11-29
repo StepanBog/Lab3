@@ -32,3 +32,4 @@ public class Lab3 {
         JavaPairRDD<Tuple2<String,String>,String> result = LambdaLib.enrichFlights(reducedFlights,airportsBroadcasted);
         result.saveAsTextFile("output");
 }
+}
