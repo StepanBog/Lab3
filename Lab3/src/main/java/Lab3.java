@@ -30,6 +30,6 @@ public class Lab3 {
                 sc.broadcast(airportMap);
         JavaPairRDD<Tuple2<String,String>,FlightKey> reducedFlights = LambdaLib.reduce(id_ID_Delay_Cancelled_Pair);
         JavaRDD<List<String>> result = LambdaLib.enrichFlights(reducedFlights,airportsBroadcasted);
-        result.saveAsTextFile("output6");
+        result.saveAsTextFile("output7");
 }
 }
