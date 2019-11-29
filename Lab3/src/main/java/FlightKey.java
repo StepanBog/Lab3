@@ -34,6 +34,6 @@ public class FlightKey implements Serializable {
     }
 
     public String tostring() {
-        return Double.toString(delay) + ", " + Double.toString(delayedCount/count * 100) + ", " + Double.toString(cancelledCount/count * 100);
+        return Double.toString(delay) + ", " + Double.toString((double)delayedCount/count * 100) + ", " + Double.toString((double)cancelledCount/count * 100);
     }
 }
