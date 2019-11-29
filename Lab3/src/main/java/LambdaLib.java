@@ -48,6 +48,6 @@ public class LambdaLib {
     }
 
     public static JavaRDD<List<String>> enrichFlights(JavaPairRDD<Tuple2<String, String>, FlightKey> reducedFlights, Broadcast<Map<String, String>> airportsBroadcasted) {
-        return reducedFlights.map(s-> airportsBroadcasted.value().get(s._1()._1()),airportsBroadcasted.value().get(s._1()._2()),s._2().tostring())
+        return reducedFlights.map(s-> Arrays.asList(airportsBroadcasted.value().get(s._1()._1()),airportsBroadcasted.value().get(s._1()._2()),s._2().tostring()));
     }
 }
