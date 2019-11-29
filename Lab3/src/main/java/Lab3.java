@@ -27,7 +27,7 @@ public class Lab3 {
         Map<String,String> airportMap = LambdaLib.toMap(id_Name_Pair);
         final Broadcast<Map<String, String>> airportsBroadcasted =
                 sc.broadcast(airportMap);
-        JavaPairRDD<>
+        JavaPairRDD<Tuple2<String,String>,FlightKey> reducedFlights = LambdaLib.reduce(id_ID_Delay_Cancelled_Pair);
 
     }
 }

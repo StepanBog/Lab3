@@ -41,4 +41,8 @@ public class LambdaLib {
     public static Map<String, String> toMap(JavaPairRDD<String, String> id_name_pair) {
         return id_name_pair.collectAsMap();
     }
+
+    public static JavaPairRDD<Tuple2<String, String>,FlightKey> reduce(JavaPairRDD<Tuple2<String, String>,FlightKey> id_id_delay_cancelled_pair) {
+        return
+    }
 }
