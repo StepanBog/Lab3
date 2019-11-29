@@ -8,7 +8,7 @@ public class FlightKey implements Serializable {
     public int delayedCount = 0;
 
     public FlightKey(String s, String s1) {
-        cancelledCount = Integer.parseInt(s1);
+        cancelledCount = (int)Double.parseDouble(s1);
         if (cancelledCount != 0) {
             delay = Double.parseDouble(s);
             delayedCount = 1;
