@@ -10,12 +10,12 @@ public class FlightKey implements Serializable {
     public FlightKey(String s, String s1) {
         cancelledCount = (int)Double.parseDouble(s1);
         if (cancelledCount != 0) {
-            delay = Double.parseDouble(s);
-            delayedCount = 1;
-        }
-        else {
             delay = 0.00;
             delayedCount = 0;
+        }
+        else {
+            delay = Double.parseDouble(s);
+            delayedCount = 1;
         }
         count = 1;
 
